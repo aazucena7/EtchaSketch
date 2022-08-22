@@ -23,3 +23,13 @@
 .box:hover {
     background-color: lightblue;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+html {
+    background-color: black;
+}

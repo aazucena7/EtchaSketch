@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class = 'btn'>Click Me</button>
-
+    <div class = 'center'>
+        <button class = 'btn'>Click Me</button>
+    </div>
+    
     <div class = 'contain' id = 'container'></div>
         
 
@@ -24,10 +26,10 @@ createGrid(256, total);
 const btn = document.querySelector('.btn');
 
 btn.addEventListener('click', () => {
-    let x = prompt('Number of sqaures per side?');
-    let squares = parseInt(x);
+    let x = prompt('Number of sqaures per side?');  //accepts user defined squares per side
+    let squares = parseInt(x);  //string to integer
 
-    if (squares < 101) {
+    if (squares < 101) { //sets max sides to 100
         Newtotal = squares * squares;
         createGrid(Newtotal);
     }
@@ -41,7 +43,6 @@ function createGrid(Newtotal, total) {
     if (Newtotal === total) { //creates initial 16x16 grid
 
         for (let i = 0; i < total; i++) {
-    
             const container = document.querySelector('#container');
 
             const box = document.createElement('div');
