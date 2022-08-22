@@ -10,7 +10,7 @@
 <body>
     <button class = 'btn'>Click Me</button>
 
-    <div class = 'container'></div>
+    <div class = 'contain' id = 'container'></div>
         
 
 
@@ -18,19 +18,63 @@
 </body>
 
 <script>
+let total = 256;
+createGrid(256, total);
+
 const btn = document.querySelector('.btn');
+
 btn.addEventListener('click', () => {
-    let squares = prompt('Number of sqaures per side?');
-    console.log(squares);
+    let x = prompt('Number of sqaures per side?');
+    let squares = parseInt(x);
+
+    if (squares < 101) {
+        Newtotal = squares * squares;
+        createGrid(Newtotal);
+    }
+
+    else {
+        alert('Too high. Please enter a number 100 or less.');
+    }
 });
 
-for (let i = 0; i < 256; i++) {
-const container = document.querySelector('.container');
+function createGrid(Newtotal, total) {
+    if (Newtotal === total) { //creates initial 16x16 grid
 
-const box = document.createElement('div');
-box.classList.add('box');
+        for (let i = 0; i < total; i++) {
+    
+            const container = document.querySelector('#container');
 
-container.appendChild(box);
+            const box = document.createElement('div');
+            box.classList.add('box');
+
+            container.appendChild(box);
+        }
+    }
+    else {
+        const element = document.querySelector('#container');
+        
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);  // removes all grid item divs
+        }
+        
+        let side = Math.sqrt(Newtotal);
+
+        const container = document.querySelector('#container');
+
+        document.getElementById('container').style.gridTemplateColumns = `repeat(${side}, 1fr)`; // sets new grid columns by user
+        document.getElementById('container').style.gridTemplateRows = `repeat(${side}, 1fr)`; //sets new grid rows by user
+
+        console.log(Newtotal)
+        for (let i = 0; i < Newtotal; i++) { //create box divs by user
+    
+            const container = document.querySelector('#container');
+
+            const box = document.createElement('div');
+            box.classList.add('box');
+
+            container.appendChild(box);
+        }
+    }
 }
 </script>
 
