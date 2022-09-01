@@ -23,6 +23,40 @@
 let total = 256;
 createGrid(256, total);
 
+//document.getElementsByClassName('box').addEventListener("mouseover", mouseOver);
+
+//const box = Array.from(document.getElementsByClassName('box'));
+
+const boxes = document.getElementsByClassName('box');
+
+for (let i = 0; i < total; i++) {
+
+boxes[i].addEventListener('mouseover', test); 
+boxes[i].addEventListener('mouseout', test2);
+
+function test(){
+    boxes[i].classList.add('box2');
+}
+
+function test2(){
+    boxes[i].classList.remove('box2');
+}
+
+}
+//box.forEach(element => {
+    //box.addEventListener("mouseover", event => {
+    //console.log('test');   
+    //});
+
+//});
+
+//box.addEventListener('mouseover', mouseOver);
+
+//console.log(box);
+//function mouseOver() {
+//   console.log('yay');
+//}
+
 const btn = document.querySelector('.btn');
 
 btn.addEventListener('click', () => {

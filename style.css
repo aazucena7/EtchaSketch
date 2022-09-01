@@ -19,10 +19,13 @@
     
 
 }
+.box2 {
+    background-color: white;
 
-.box:hover {
-    background-color: lightblue;
 }
+/*.box:hover {
+    background-color: lightblue;
+}*/
 
 .center {
     display: flex;
